@@ -1,35 +1,37 @@
 # Bayesian Inference Super Resolution
 
-A deep learning–based **medical image super-resolution** framework integrating **Bayesian inference** for reconstruction and predictive uncertainty estimation.
+Implementation code for the research paper:
 
-This project focuses on improving reconstruction fidelity while providing **pixel-wise uncertainty quantification**, enabling more reliable clinical interpretation of super-resolved medical images.
+## **Enhancing Clinical Reliability of Medical Image Super-Resolution via Bayesian Deep Learning with Predictive Uncertainty Quantification Framework**
 
+**Authors:**
+Viet Ngo Quoc, Yen Thai
 ---
 
-## 📌 Overview
+## Overview
 
-Medical image super-resolution (SR) reconstructs high-resolution (HR) images from low-resolution (LR) acquisitions. However, reconstruction quality is often affected by acquisition noise, scanner variability, and protocol differences.
+Medical image super-resolution (SR) reconstructs high-resolution (HR) images from low-resolution (LR) acquisitions. While deep learning methods have achieved impressive reconstruction quality, most existing approaches provide deterministic predictions without reliability assessment.
 
-This repository implements:
+This repository provides:
 
-* Deep learning–based Super-Resolution
-* Bayesian inference for probabilistic modeling
-* Predictive uncertainty estimation
+* Bayesian Super-Resolution framework
+* Predictive uncertainty quantification
 * Training, evaluation, and inference pipelines
+* Medical imaging experiments using MRI datasets
 
 ---
 
-## 🧠 Key Features
+## Key Features
 
-* ✅ Bayesian deep learning framework for Super-Resolution
+* ✅ Bayesian deep learning–based Super-Resolution
 * ✅ Pixel-wise uncertainty estimation
+* ✅ Aleatoric + Epistemic uncertainty modeling
 * ✅ Support for medical images (`.nii` / NIfTI format)
-* ✅ Modular and reproducible training pipeline
-* ✅ Designed for medical imaging research
+* ✅ Reproducible research pipeline
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Bayesian_Inference_Super_Resolution/
@@ -46,9 +48,9 @@ Bayesian_Inference_Super_Resolution/
 
 ---
 
-## 🗂 Dataset Structure
+## Dataset Structure
 
-The dataset must follow the hierarchical structure:
+The dataset must follow the hierarchical organization:
 
 ```
 {DATA_FOLDER_PATH_FULL}/
@@ -73,33 +75,31 @@ dataset/
 │       └── scan_01.nii
 ```
 
-### Description
-
-| Component     | Description                             |
-| ------------- | --------------------------------------- |
-| **Study**     | Patient ID or acquisition session       |
-| **Scan Type** | Imaging modality (T1, T2, FLAIR, etc.)  |
-| **File Name** | 3D medical image stored in NIfTI format |
+| Component     | Description                            |
+| ------------- | -------------------------------------- |
+| **Study**     | Patient or acquisition session         |
+| **Scan Type** | Imaging modality (T1, T2, FLAIR, etc.) |
+| **File Name** | 3D medical image in NIfTI format       |
 
 ---
 
-## ⚙️ Installation
+## Installation
 
-### 1. Clone Repository
+### Clone repository
 
 ```bash
 git clone https://github.com/Sherlockian1212/Bayesian_Inference_Super_Resolution.git
 cd Bayesian_Inference_Super_Resolution
 ```
 
-### 2. Create Environment
+### Create environment
 
 ```bash
 conda create -n bayesian_sr python=3.10
 conda activate bayesian_sr
 ```
 
-### 3. Install Dependencies
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -107,9 +107,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 Training
-
-Run training:
+## Training
 
 ```bash
 python train/train.py
@@ -122,7 +120,7 @@ Outputs:
 
 ---
 
-## 🔎 Evaluation
+## Evaluation
 
 ```bash
 python eval/evaluate.py
@@ -130,13 +128,13 @@ python eval/evaluate.py
 
 Evaluation includes:
 
-* Reconstruction performance metrics
+* Reconstruction metrics
 * Visual comparison
 * Predictive uncertainty analysis
 
 ---
 
-## 📊 Output
+## Output
 
 The framework generates:
 
@@ -146,33 +144,24 @@ The framework generates:
 
 ---
 
-## 🧩 Methodology
+## Citation
 
-The proposed framework integrates:
-
-1. Deep Super-Resolution Network
-2. Bayesian Variational Inference
-3. Predictive Uncertainty Quantification
-
-Uncertainty estimation provides additional information about model confidence and reconstruction reliability.
-
----
-
-## 📄 Citation
+If you use this repository, please cite:
 
 ```bibtex
-@article{bayesian_sr,
-  title={Bayesian Inference for Medical Image Super-Resolution with Predictive Uncertainty},
-  author={Author},
+@article{ngo2026bayesianSR,
+  title={Enhancing Clinical Reliability of Medical Image Super-Resolution via Bayesian Deep Learning with Predictive Uncertainty Quantification Framework},
+  author={Ngo Quoc, Viet and Thai, Yen},
   year={2026}
 }
 ```
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Authors
 
-**Sherlockian1212**
+* Viet Ngo Quoc
+* Yen Thai
 
 ---
 
