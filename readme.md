@@ -23,11 +23,28 @@ This repository provides:
 
 ## Key Features
 
-* ✅ Bayesian deep learning–based Super-Resolution
+* ✅ Bayesian deep learning-based Super-Resolution
 * ✅ Pixel-wise uncertainty estimation
 * ✅ Aleatoric + Epistemic uncertainty modeling
 * ✅ Support for medical images (`.nii` / NIfTI format)
 * ✅ Reproducible research pipeline
+
+---
+
+## Model Architecture
+
+The proposed model consists of three main components: (i) a backbone network for feature extraction, (ii) an upscaling module for spatial resolution enhancement, and (iii) a Bayesian head that generates the super-resolved image along with  associated predictive uncertainty. 
+
+![Overview.png](figures/Overview.png)
+
+---
+
+## Uncertainty Estimation
+
+By performing multiple inferences on the same input, this architecture enables the estimation of both
+aleatoric and epistemic uncertainty.
+
+![UncertaintyEstimation.png](figures/UncertaintyEstimation.png)
 
 ---
 
@@ -54,7 +71,7 @@ The dataset must follow the hierarchical organization:
 
 ```
 {DATA_FOLDER_PATH_FULL}/
-    └── {Study}/
+    └── {StudyID}/
         └── {Scan Type}/
             └── {File Name}.nii
 ```
@@ -76,8 +93,8 @@ dataset/
 ```
 
 | Component     | Description                            |
-| ------------- | -------------------------------------- |
-| **Study**     | Patient or acquisition session         |
+|---------------| -------------------------------------- |
+| **StudyID**   | Patient or acquisition session         |
 | **Scan Type** | Imaging modality (T1, T2, FLAIR, etc.) |
 | **File Name** | 3D medical image in NIfTI format       |
 
@@ -95,7 +112,7 @@ cd Bayesian_Inference_Super_Resolution
 ### Create environment
 
 ```bash
-conda create -n bayesian_sr python=3.10
+conda create -n bayesian_sr python=3.12
 conda activate bayesian_sr
 ```
 
@@ -110,7 +127,7 @@ pip install -r requirements.txt
 ## Training
 
 ```bash
-python train/train.py
+python train/training_model.py
 ```
 
 Outputs:
@@ -123,7 +140,7 @@ Outputs:
 ## Evaluation
 
 ```bash
-python eval/evaluate.py
+python eval/evaluation_model.py
 ```
 
 Evaluation includes:
@@ -142,19 +159,7 @@ The framework generates:
 * Predictive mean reconstruction
 * Pixel-wise uncertainty maps
 
----
-
-## Citation
-
-If you use this repository, please cite:
-
-```bibtex
-@article{ngo2026bayesianSR,
-  title={Enhancing Clinical Reliability of Medical Image Super-Resolution via Bayesian Deep Learning with Predictive Uncertainty Quantification Framework},
-  author={Ngo Quoc, Viet and Thai, Yen},
-  year={2026}
-}
-```
+![Predict_visualization.png](figures/Predict_visualization.png)
 
 ---
 
